@@ -1,0 +1,43 @@
+﻿<UserControl x:Class="ExpenseTracker.Views.LoginView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:mc="http://schemas.microsoft.com/markup-compatibility/2006"
+             xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core"
+             xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors">
+    <Grid>
+        <!-- Column 0: Buttons and stuff -->
+        <StackPanel Margin="20">
+            <!-- Welcome Text -->
+            <TextBlock Text="Hello," FontSize="48px" FontWeight="Light" HorizontalAlignment="Left" Margin="55,50,0,0"/>
+            <TextBlock Text="welcome!" FontSize="48px" FontWeight="ExtraBold" HorizontalAlignment="Left" Margin="55,0,0,20"/>
+
+            <!-- Username Text Field -->
+            <dxe:TextEdit Name="UsernameTextBox" Padding="10" MinWidth="200" Width="Auto" HorizontalAlignment="Center" Margin="0,0,0,10"/>
+
+            <!-- Password Text Field -->
+            <dxe:PasswordBoxEdit Name="PasswordBox" Padding="10" MinWidth="200" Width="Auto" HorizontalAlignment="Center" Margin="0,0,0,20"/>
+
+            <!-- Buttons (Sign In and Sign Up) -->
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,0,0,10">
+                <dx:SimpleButton Content="Log In" MinWidth="80" Width="Auto"  
+                                 Height="25" Margin="5" Command="{Binding SigninCommand}"/>
+                <dx:SimpleButton Content="Sign Up" MinWidth="80" Width="Auto"  
+                    Height="25" Margin="5" Command="{Binding SignupCommand}"/>
+            </StackPanel>
+
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Left" Margin="55,10,0,0">
+                <TextBlock HorizontalAlignment="Center" Margin="0,10,0,0">
+                    <Hyperlink Command="{Binding ForgetPasswordCommand}">
+                        Forget Password?
+                    </Hyperlink>
+                </TextBlock>
+
+                <dxe:CheckEdit Name="RememberMeCheckBox" VerticalAlignment="Center" Margin="0,0,5,0" Content="Remember Me"/>
+            </StackPanel>
+
+            <!-- Sign in with Microsoft Button -->
+            <dx:SimpleButton MinWidth="200" Width="Auto" Height="25" HorizontalAlignment="Center" Margin="55,0,0,0" Content="Sign in with Microsoft" Command="{Binding AzureLoginCommand}"/>
+        </StackPanel>
+    </Grid>
+</UserControl>
